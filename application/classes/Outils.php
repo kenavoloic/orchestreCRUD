@@ -15,20 +15,6 @@ trait Outils {
     header('location: ' . URL . '/' . $lien);
   }
 
-  /* public function getOrigine(){
-   *   return "Pharetra, magna ac placerat vestibulum.";
-   * } */
-  
-  /* 
-   *   public function getOrigine_(){
-   *     $parametres = isset($_SESSION['parametres']) ? implode("/",$_SESSION['parametres']): "";
-   *     $origine = $_SESSION['controleur']."/".$_SESSION['methode'].$parametres;
-   *     unset($_SESSION['controleur']);
-   *     unset($_SESSION['methode']);
-   *     unset($_SESSION['parametres']);
-   *     return $origine;
-   *   } */
-
   public function ucfirst_utf8(string $chaine){
     return mb_convert_case($chaine, MB_CASE_TITLE, "UTF-8");
   }
@@ -66,11 +52,7 @@ trait Outils {
   ///////////////////////////////////////////////////////////////
   // Outils html
   ///////////////////////////////////////////////////////////////
-  /*
-     public function getPageIndex(){
-     return array(getEnteteHtml(), getBarreMenusHtml(), getBasDePageHtml());
-     }
-   */
+
   public function getEnteteHtml(){
     ob_start();
     include(PATRONS . 'enteteHtml.php');
@@ -110,25 +92,6 @@ trait Outils {
     return ob_get_clean();
   }
 
-  /* 
-   * public function getBasDePageHtml_tableau(){
-   *   ob_start();
-   *   include(PATRONS . 'basDePageHtml_tableau.php');
-   *   return ob_get_clean();
-   * }
-
-   * public function getBasDePageHtml_formulaireCreation(){
-   *   ob_start();
-   *   include(PATRONS . 'basDePageHtml_formulaireCreation.php');
-   *   return ob_get_clean();
-   * }
-
-   * public function getBasDePageHtml_formulaireModification(){
-   *   ob_start();
-   *   include(PATRONS . 'basDePageHtml_formulaireModification.php');
-   *   return ob_get_clean();
-   * } */
-
   public function getFormulaireCreation(array $genres, array $instruments, array $nationalites){
     ob_start();
     extract($genres);
@@ -163,20 +126,6 @@ trait Outils {
     include(PATRONS . 'bilan.php');
     return ob_get_clean();
   }
-  /* 
-   *   public function getEntetePanneau(){
-   *     ob_start();
-   *     echo '<main>' . PHP_EOL;
-   *     echo '<div id="panneau">' . PHP_EOL;
-   *     return ob_get_clean();
-   *   }
-   * 
-   *   public function getBasDePagePanneau(){
-   *     ob_start();
-   *     echo '</div>' . PHP_EOL;
-   *     echo '</main>' . PHP_EOL;
-   *     return ob_get_clean();
-   *   } */
 
   public function getTitrePanneau(array $intitule){
     $libelle = is_null($intitule['nombre']) || empty($intitule['nombre']) ? $intitule['texte'] : $intitule['texte']." : ".$intitule['nombre'];

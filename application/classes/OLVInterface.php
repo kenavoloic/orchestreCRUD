@@ -130,10 +130,7 @@ interface OLVInterface {
     'pays' => 'chaine',
     'modification' => 'chaine',
     'suppression' => 'chaine',
-    // Tour de France
-    'annee' => 'date',
-    'deces' => 'date',
-    'surnom' => 'chaine',
+    'recrutement' => 'date'
   );
 
   const casse = [

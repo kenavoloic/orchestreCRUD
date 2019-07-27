@@ -1,6 +1,4 @@
 <main class="_formulaire">
-  <!-- <main>
-       <div id="_formulaire"> -->
     <form method="post" id="formulaire" name="formulaire" action="<?php echo URL . 'creation/recrutementCreation'; ?>">
       <fieldset>
 	<div class="ligne" id="_genre">
@@ -82,8 +80,6 @@
 		</div>
       </fieldset>
     </form>
-    <!-- </div>
-	 </main> -->
 </main>
 <script src="<?php echo URL . 'public/js/orchestre.js'; ?>">
 </script>

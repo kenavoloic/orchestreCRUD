@@ -64,36 +64,5 @@ class Accueil {
     echo $this->getBasDePageHtml();
   }
 
-  public function index0(array $envoi){
-
-    echo $this->getEnteteHtml();
-    echo $this->getBarreMenusHtml();
-
-    echo '<main class="accueil">
-    <p id="p1">Gestion de l’effectif d’un orchestre symphonique. Web-application de type CRUD. Toutes les opérations sont accesibles à partir des quatre menus principaux : <em>Lecture</em> pour consulter la base de données, <em>Création</em> pour recruter un musicien, <em>Modification</em> pour éditer les informations et finalement <em>Suppression</em>. Les informations sont présentées sous la forme de tableau. Il est possible de réordonner les données de chaque tableau en cliquant sur les entêtes.</p>
-
-    <h1 id="t1">Orchestre</h1>
-    
-    <p id="p2">Seules les fonctionnalités essentielles sont implémentées. Neque laoreet suspendisse interdum consectetur libero, id faucibus nisl tincidunt eget nullam non nisi est, sit? Justo, laoreet sit amet cursus sit amet? Lacus, viverra vitae congue eu, consequat ac felis donec et odio pellentesque diam volutpat commodo sed egestas egestas. Diam maecenas ultricies mi eget mauris? Duis ut diam quam nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus risus, at ultrices mi tempus imperdiet nulla malesuada pellentesque elit. Arcu ac tortor dignissim convallis aenean et tortor at?</p>
-
-    <h1 id="t2">À faire</h1>
-
-    <ul id="p3">
-    <li>HTML5</li>
-    <li>CSS3</li>
-    <li>Javascript</li>
-    <li>LAMP</li>
-    <li>Apache Server</li>
-    <li>MySQL</li>
-    <li>PHP</li>
-    <li>Debian</li>
-    </ul>
-
-    <h1 id="t3">Technologies utilisées</h1>
-    </main>';
-
-    //echo $this->getBilan();
-    /* echo $this->getBasDePageHtml();     */
-  }
   
 }
