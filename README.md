@@ -33,7 +33,9 @@ L’application est un *work in progress*.
 * Personnel administratif et technique.
 
 ### Programmation PHP
+* Adoption d’une approche fonction et transformation des boucles foreach
 * Héritage ou composition : utilisation d’une classe dont hériteront les classes *Accueil*, *Lecture*, *Modification* et *Suppression* ou maintien de la composition.
+
 
 
 
