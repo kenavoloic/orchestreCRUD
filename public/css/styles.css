@@ -1,0 +1,822 @@
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html, body {
+  height:100%;
+}
+
+body {
+  color:var(--couleurBodyTexte);
+  background-color:var(--couleurBodyFond);
+  font-size:1em;
+  line-height:1.2;
+}
+
+/* Entete + menu %%%%%%%%%%%%%%%%%%%%%%% */
+/* Entete fixe */
+header {
+  z-index:1;
+  position:fixed;
+  width:100%;
+  top:0;
+  left:0;
+  padding:0.8em 0;
+  background-color:var(--couleurLabelFond);
+  border-top:2px solid var(--couleurBodyTexte);
+  border-bottom:2px solid var(--couleurBodyTexte);
+  line-height:2;
+}
+
+nav {
+  background-color:var(--couleurFormulaireLabelFond);
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  padding: 0 5px;
+}
+
+p#motto {
+  font-family:var(--policeSansSerif), sans-serif;
+  font-style:normal;
+  font-size:var(--policeMottoTaille);
+  text-align:center;
+  color:var(--couleurMottoTexte);
+  background-color:var(--couleurParagrapheFond);
+  text-shadow:var(--ombreMotto);
+  align-self:flex-start;
+  border-radius:10px;
+  padding:5px 5px;
+
+  flex-wrap:nowrap;
+  flex-basis:auto;
+  flex-grow:0;
+  flex-shrink:1;
+}
+
+nav a.mottoAccueil {
+  color:var(--couleurMottoTexte);
+  background-color:var(--couleurParagrapheFond);
+}
+
+nav a.mottoAccueil:hover {
+  color:var(--couleurParagrapheFond);
+  background-color:var(--couleurMottoTexte);
+}
+
+menu#principal {
+  text-shadow:var(--ombreTexteMenu);
+  
+  justify-content:flex-end;
+  flex-basis:auto;
+  flex-grow:1;
+  flex-shrink:1;
+  flex-wrap:wrap;
+
+  display:flex;
+  flex-direction:row;
+}
+
+nav choix {
+  position:relative;
+  display:block;
+  opacity:0;
+  cursor:pointer;
+}
+
+nav choix > menu {
+  position:absolute;
+  pointer-events:none;
+}
+
+/* sousmenu : 1, 2, 3, 4 */
+nav > menu > choix > menu {
+  flex-direction:column;
+  font-size:var(--policeTailleMenuReduite);
+  text-align:left;
+}
+
+/* sousmenu5 */
+nav > menu > choix > menu > choix > menu {
+  flex-direction:column;
+  font-size:var(--policeTailleMenuReduite);
+}
+
+/* menu principal  */
+nav > menu > choix {
+  pointer-events:all;
+  opacity:1;
+  text-align:center;
+  
+  flex-grow:1;
+  flex-shrink:1;
+  flex-basis:0;
+}
+
+/* Liens */
+nav a {
+  text-decoration:none;
+  font-family:var(--policeSansSerif), sans-serif;
+  color:var(--couleurLienTexte);
+  background-color:var(--couleurLienFond);
+  position:relative;
+  border-radius:3px;
+  padding:5px 5px;
+  box-shadow:0px 2px 4px rgba(0,0,0,0.25);
+  transition: all 450ms ease-in;
+  position:relative;
+}
+
+nav a:hover {
+  color:var(--couleurLienSurvolTexte);
+  background-color:var(--couleurLienSurvolFond);
+  position:relative;
+}
+
+
+/* élargit la zone de sélection */
+
+menu choix a {
+  white-space:nowrap;
+  display:block;
+}
+
+choix:hover > menu {
+  pointer-events:initial;
+}
+
+choix:hover > menu > choix {
+  opacity:1;
+}
+
+/* Survol et affichage des menus */
+
+nav > menu > choix > menu > choix {
+  transform: translateY(150%);
+  opacity:0;
+}
+
+nav > menu > choix:hover > menu > choix {
+  transform: translateX(0%) translateY(0%);
+  opacity:1;
+}
+
+nav > menu > choix > menu > choix > menu > choix {
+  transform: translateX(0%) translateY(0%);
+  opacity:0;
+}
+
+nav > menu > choix > menu > choix:hover > menu > choix {
+  transform: translateX(0) translateY(0%);
+  opacity:1;
+}
+
+nav > menu > choix choix menu {
+  transform: translateX(100%);
+  top:0;
+  right:0;
+}
+
+/**************************************************************/
+/* Plusieurs documents:
+   accueil
+   tableaux 
+   formulaires
+ */
+/****************************************************************/
+/*
+main.tabulaire {
+  width:99%;
+  margin-top:5.5em;
+  position:relative;
+  display:grid;
+  grid-template-rows:repeat(2,1fr);
+  grid-template-columns:1fr;
+}
+*/
+
+main.tabulaire {
+  width:100%;
+  margin-top:5.5em;
+  display:grid;
+  /* grid-template-columns:10px auto 10px; */
+  grid-template-columns:auto;
+  grid-gap:5px;
+}
+
+main.tabulaire_ {
+  margin-top:5.5em;
+  position:relative;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:98%;
+}
+
+main.bilan {
+  margin-top:5.5em;
+  display:grid;
+  grid-gap: 10px;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:(1fr, 2fr, auto);
+  width:100%;
+  grid-template-areas:
+    "titre titre titre titre"
+    "musiciens genres direction cordes"
+    "bois cuivres autres nationalites ";
+}
+
+main._formulaire {
+  margin-top:5.5em;
+  display:grid;
+  grid-gap:10px;
+  grid-template-columns:auto;
+  grid-template-row:(1fr, 1fr, auto);
+  width:100%;
+}
+
+main._formulaire_ {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:98%;
+}
+
+main._tableau {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:98%;
+}
+
+
+
+/*
+   div#texte {
+   display:grid;
+   grid-template-columns:(6,1fr);
+   grid-template-rows:(5,1fr);
+   background-color:#797979;
+   color:#9a3434;
+   border-radius:5px;
+   }
+
+   #_p1 {
+   grid-column:2/4;
+   grid-row:2/4;
+   background-color:#44BB33;
+   text-align:right;
+   }
+
+   #_p2{
+   grid-column:4/6;
+   grid-row:3/5;
+   background-color:#887878;
+   }
+
+   .texte  p {
+   background-color:#121212;
+   }
+ */
+
+div#_formulaire, div#_tableau {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:98%;
+}
+/* 
+   main.fantasio {
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   width:98%;
+   } */
+
+/* Formulaire %%%%%%%%%%%%%%%%%%%%%%% */
+
+form {
+  flex-basis:1;
+  flex-grow:1;
+  border-radius:4px;  
+  
+  display:grid;
+  grid-template-rows:repeat(9,1fr);
+  grid-gap:5px;
+}
+
+fieldset {
+  border:var(--borderRadius5) solid var(--couleurFormulaireLabelFond);
+}
+
+.ligne {
+  margin:5px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.ligne label {
+  display:inline-block;
+  font-family:var(--policeSerif);
+  font-size:var(--policeLabelTaille);
+  text-align:center;
+  color:var(--couleurLabelTexte);
+  background-color:var(--couleurLabelFond);
+  padding:5px 10px;
+  margin:5px;
+  border:1px solid var(--couleurLabelBorder);
+  border-radius:4px;
+}
+
+.ligne input {
+  outline:none;
+  border:1px solid var(--couleurInputBorder);
+  border-radius:4px;
+  box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);
+}
+
+.ligne input[placeholer] {
+  text-align:center;
+}
+
+.ligne input[type="text"] {
+  font-family:var(--policeSansSerif);
+  color:var(--couleurBodyTexte);
+  padding-left:5px;  
+}
+
+.ligne input[type=text][required] {
+  background-image: var(--asterisque);
+  background-position-x: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.ligne input[type="submit"]{
+  appearance:none;
+  font-family:var(--policeSansSerif);
+  font-size:inherit;
+  border-style:outset;
+  border-color:var(--couleurInputTexte);
+  color:var(--couleurInputTexte);
+  background:var(--couleurInputFond);
+  text-shadow:var(--ombreTexteBouton);
+}
+
+.ligne input[type="submit"]:hover {
+  color:var(--couleurInputFond);
+  background-color:var(--couleurInputTexte);
+  box-shadow:var(--ombreBoiteBouton);
+}
+
+.ligne select {
+  font-family:var(--policeSansSerif);
+  text-align:center;
+  appearance:none;
+  -webkit-appearance:none;
+  padding-left:5px;
+  padding-right:5px;
+  border-radius:4px;
+  color:var(--couleurSelectTexte);
+  background-color:var(--couleurSelectFond);
+  outline:none;
+  border-radius:4px;
+  border-color:var(--couleurSelectBorder);
+  background-repeat: no-repeat;
+  background-size: 0.75em auto;
+  background-position:right .7em center;
+  padding-right:0.85em;
+  background-image:var(--triangle);
+}
+
+.ligne select:disabled, .ligne select:invalid, .ligne select:required:invalid {
+  color:var(--couleurSelectTexteInvalid);
+}
+
+.ligne select:valid, .ligne select:required:valid {
+  color:var(--couleurBodyTexte);
+}
+
+.ligne input, .ligne select, .ligne label {
+  transition: all 350ms ease;
+}
+
+/* flex  */
+.ligne > label {
+  order:1;
+  flex:flex-start;
+
+  flex-basis:0;
+  flex-shrink:1;
+  flex-grow:1;
+}
+
+.ligne > select {
+  order:2;
+  flex:flex-end;
+
+  flex-basis:0;
+  flex-shrink:1;
+  flex-grow:3;
+}
+
+.ligne > input[type="text"] {
+  order:2;
+  flex:flex-end;
+  flex-basis:0;
+  flex-shrink:1;
+  flex-grow:3;
+
+}
+
+.ligne > input[type="submit"] {
+  width:100%;
+  flex-basis:0;
+  flex-shrink:1;
+  flex-grow:4;
+}
+
+
+/* Animation des labels */
+.ligne input[type="text"]:active ~ label,
+.ligne input[type="text"]:focus ~ label {
+  color:var(--couleurInputTexte);
+  background-color:var(--couleurBodyFond);
+  text-shadow: 1px 0px 1px #000020;
+  border:1px solid var(--couleurLabelFocus);
+}
+
+
+.ligne select:active ~ label,
+.ligne select:focus ~ label {
+  color:var(--couleurInputTexte);
+  background-color:var(--couleurBodyFond);
+  text-shadow: 1px 0px 1px #000020;
+  border:1px solid var(--couleurLabelFocus);
+}
+
+/* panneau %%%%%%%%%%%%%%%%%%%%%%% */
+
+
+main.fantasio {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+div#panneau {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  /* align-items:center; */
+
+  /* width:99%; */
+  
+  width:100vw;
+}
+
+.messagerie {
+  /* height:2em; */
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  margin:0;
+  padding:0;
+  width:99vw;
+}
+
+h1 {
+  text-align:center;
+  font-family:serif;
+  font-size:1.25em;
+  padding:2px 5px;
+  margin:5px;
+  border-radius:var(--borderRadius5);
+  width:100%;
+}
+
+h1#intitulePanneau {
+  /* text-align:center; */
+  color:var(--couleurTableEnteteTexte);
+  /* background-color:var(--couleurTableEnteteFonds); */
+  background-color:var(--couleurMenuFond);
+  border-radius:var(--borderRadius5);
+  /* font-family:serif; */
+  font-size:1.25em;
+  /* padding:5px 0px;
+     margin:5px; */
+}
+
+h1#echec {
+  font-size:1.15em;
+  color:var(--couleurMessageEchec);
+  background-color:var(--couleurMessageEchecFond);
+  border-color:var(--couleurMessageEchecBord);
+}
+
+h1#succes {
+  font-size:1.15em;  
+  color:var(--couleurMessageSucces);
+  background-color:var(--couleurMessageSuccesFond);
+  border-color:var(--couleurMessageSuccesBord);
+}
+
+.cadreTableau {
+  display:flex;
+  align-items:center;
+  width:100vw;
+}
+
+/* tableau %%%%%%%%%%%%%%%%%%%%%%% */
+
+table.instrumentistes {
+  border:1px solid var(--couleurTableFonds);
+  /* border-collapse:separate; */
+  border-radius:var(--borderRadius15);
+  text-align:center;
+  /*width:100vw;*/
+  width:100%;
+  font-size:0.9em;/*0.75vw;85%;*/
+  border-spacing:5px;
+  color:var(--couleurTableTexte);
+  background-color:var(--couleurTableFonds);
+  margin:0;
+  padding:0;
+}
+
+
+table.instrumentistes th{
+  color:var(--couleurTableEnteteTexte);
+  background:var(--couleurTableEnteteFonds);
+  border-radius:var(--borderRadius5);
+  text-transform:capitalize;
+  font-family:"Esteban",serif;
+  /* font-family:serif; */
+  padding:5px;
+  cursor:pointer;
+}
+
+table.instrumentistes td{
+  /* font-family:"Esteban",serif; */
+  font-family:"Mukta",sans-serif;
+  border-radius:var(--borderRadius5);
+  padding:5px;
+}
+
+table.instrumentistes td.texte {
+  text-align:justify;
+  text-justify:distribute;/* inter-word; */
+}
+
+table.instrumentistes tr:nth-child(odd){
+  background:var(--couleurTableRayureImpair);
+}
+
+table.instrumentistes tr:nth-child(even){
+  background:var(--couleurTableRayurePair);
+}
+
+table.instrumentistes tr:hover {
+  background-color:rgba(0,0,0,0.12);
+} 
+
+/* Messagerie et messages %%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* .messagerie {
+   text-align:center;
+   font-weight:bold;
+   padding:5px;
+   margin:5px 0;
+   background-color:inherit;
+   border:1px solid var(--couleurMessageSuccesBord);
+   border-radius:var(--borderRadius5);
+   display:block;
+   }
+
+   .echec {
+   color:var(--couleurMessageEchec);
+   background-color:var(--couleurMessageEchecFond);
+   border-color:var(--couleurMessageEchecBord);
+   }
+
+   .succes {
+   color:var(--couleurMessageSucces);
+   background-color:var(--couleurMessageSuccesFond);
+   border-color:var(--couleurMessageSuccesBord);
+   }
+ */
+
+/* Media queries %%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+@media only screen and (max-width: 700px){
+
+  nav {
+    /* display:grid;
+       grid-template-rows:repeat(2,1fr); */
+    display:flex;
+    flex-direction:column;
+  }
+
+  p#motto {
+    flex-grow:1;
+    flex-shrink:1;
+    flex-basis:auto;
+    width:100%;
+  }
+
+  menu#principal {
+    justify-content:center;
+    flex-wrap:nowrap;
+  }
+  
+  nav > menu > choix {
+    flex-grow:1;
+    flex-shrink:1;
+    flex-basis:0;
+  }
+}
+
+@media only screen and (max-width: 700px){
+  .ligne {
+    display:flex;
+    flex-direction:column;
+  }
+
+  .ligne label,
+  .ligne select,
+  .ligne input[type="text"],
+  .ligne input[type="submit"] {
+
+    flex-basis:auto;
+    flex-grow:1;
+    flex-shrink:1;
+    width:100%;
+  }
+
+}
+
+@media only screen and (max-width: 700px){
+  header {
+    padding:0;
+    padding-bottom:0.5em;
+    line-height:1.2;
+  }
+  main {
+    margin-top:5em;
+  }
+  menu#principal {
+    display:flex;
+    flex-direction:row;
+  }
+}
+
+/*
+.accueil {
+  display:grid;
+  grid-template-rows:repeat(4,1fr);
+  grid-template-columns:auto;
+  grid-gap:10px 10px;
+  margin-top:5.5em;
+  margin-right: 10px;
+}
+*/
+/*
+.accueil > * {
+  border-radius:var(--borderRadius5);
+  border:2px solid var(--couleurInputTexte);
+}
+
+.accueil > h1 {
+  background-color:var(--couleurMenuFond);
+  font-family:"Quando",serif;
+  font-size:1.5em;
+  font-style:normal;
+  padding:10px;
+  color:var(--couleurMottoTexte);
+  text-align:center;
+  justify-content:center;	   
+}
+
+.accueil > p {
+  font-family:serif;
+  text-align:justify;
+  text-justify:distribute-all-lines;
+  border:2px solid var(--couleurInputBorder);
+  padding:10px;
+  background-color:var(--couleurLigneFond);
+
+}
+
+.accueil > ul {
+  border:2px solid var(--couleurInputBorder);
+  list-style-type:none;
+
+  display:grid;
+  grid-gap:5px 5px;
+  grid-template-columns:repeat(2,1fr);
+
+  grid-template-rows:auto;
+  justify-items:center;
+  align-items:center;
+}
+
+.accueil #t1,
+.accueil #t2,
+.accueil #t3 {
+  display:flex;
+  align-items:center;
+}
+
+.accueil #t1 {
+  grid-row:1;
+  grid-column:2;
+}
+
+.accueil #t2 {
+  grid-row:2;
+  grid-column:1;
+}
+
+.accueil #t3 {
+  grid-row:3;
+  grid-column:2;
+}
+
+.accueil #p1{
+  grid-column:1;
+  grid-row:1;
+}
+
+.accueil #p2{
+  grid-column:2;
+  grid-row:2;
+}
+
+
+.accueil #p3{
+  grid-column:1;
+  grid-row:3;
+}
+*/
+/*
+main.bilan {
+  display:grid;
+  grid-gap: 10px;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:(1fr, 2fr, auto);
+  width:100%;
+  grid-template-areas:
+    "titre titre titre titre"
+    "musiciens genres direction cordes"
+    "bois cuivres autres nationalites ";
+}
+*/
+main.bilan > * {
+  border-radius:var(--borderRadius5);
+  border:2px solid var(--couleurInputTexte);
+}
+
+
+main.bilan #titre {
+  grid-area: titre;
+}
+main.bilan #musiciens {
+  grid-area: musiciens;
+}
+main.bilan #genres {
+  grid-area: genres;
+}
+main.bilan #direction {
+  grid-area: direction;
+}
+main.bilan #cordes {
+  grid-area: cordes;
+}
+main.bilan #bois {
+  grid-area: bois;
+}
+main.bilan #cuivres {
+  grid-area: cuivres;
+}
+main.bilan #autres {
+  grid-area: autres;
+}
+main.bilan #nationalites {
+  grid-area: nationalites;
+}
+
+main.bilan h2 {  
+  background-color:var(--couleurMenuFond);
+  font-family:"Quando",serif;
+  font-size:0.95em;
+  font-style:normal;
+  padding:10px;
+  color:var(--couleurMottoTexte);
+  text-align:center;
+  justify-content:center;	   
+}

@@ -1,0 +1,139 @@
+@import url(https://fonts.googleapis.com/css?family=Esteban);
+@import url(https://fonts.googleapis.com/css?family=Mukta);
+@import url(https://fonts.googleapis.com/css?family=Quando);
+@import url(https://fonts.googleapis.com/css?family=Rosarivo);
+
+@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400i);
+
+@font-face {
+  font-family:"Esteban",serif;
+  font-style:normal;
+  font-weight:normal;
+}
+
+@font-face {
+  font-family:"Mukta", sans-serif;
+  font-style:normal;
+  font-weight:normal;
+}
+
+@font-face {
+  font-family:"Quando", serif;
+  font-style:normal;
+  font-weight:normal;
+}
+
+@font-face {
+  font-family:"Rosarivo", serif;
+  font-style:normal;
+  font-weight:normal;
+}
+
+@font-face {
+  font-family:"IBM Plex Serif", serif;
+  font-style:italic;
+  font-weight:normal;
+}
+
+:root {
+  --couleurBodyTexte:#000000;
+  --couleurBodyFond:#f0f0f0;/* whitesmoke; */
+
+  --couleurIdTexte:#dc143c;
+  --couleurIdFond:#dc143c;
+
+  --couleurFormulaireLabelTexte:#ffffff;
+  --couleurFormulaireLabelFond:#466cdb;
+
+  --couleurLigneFond:#f0f6ff;/* #222222; */
+
+  --couleurLabelTexte:#ffffff;
+  --couleurLabelFond:#466cdb;/*#2980b9;*/
+  --couleurLabelFocus:#466cdb; /*#f535aa; NeonPink*/
+  --couleurLabelBorder:#d8d8d8;
+
+  --couleurInputTexte:#466cdb;
+  --couleurInputFond:#ffffff;
+  --couleurInputBorder:#466cdb;
+  --couleurInputFocus:#dc143c;
+
+  --couleurMenuTexte:#ffffff;
+  --couleurMenuFond:#466cff;/* #466cdb; */
+
+  --couleurMottoTexte:#ffffff;
+
+  --couleurSelectTexte:#000000;/* #466cff; */
+  --couleurSelectTexteDefaut:#466cff;
+  --couleurSelectTexteValid:#010101;
+  --couleurSelectTexteInvalid:#466cff;/* 123456; */
+  --couleurSelectFond:#ffffff;
+  --couleurSelectBorder:#466cff;
+  --couleurSelectFocus:#dc143c;
+
+  --couleurTableFonds:#ffffff;
+  --couleurTableTexte:#000000;
+  --couleurTableEnteteTexte:#ffffff;
+  --couleurTableEnteteFonds:#466cdb;
+  --couleurTableHover:#5e5d52;
+  --couleurTableHoverMobile:#5e5d52;
+  --couleurTableRayure:#cbdffc;
+  --couleurTableRayureImpair:#cbdffc;
+  --couleurTableRayurePair:#f8f8f8;
+  --couleurTableBoutonSurvolTexte:#f8f8f8;
+  --couleurTableBoutonSurvolFond:#ee44aa;
+  --couleurTableBoutonSurvolFondRejeter:#ee44aa;
+  --couleurTableBoutonSurvolFondRecruter:#44ee88;
+
+  --couleurParagrapheTexte:#f1f1f1;
+  --couleurParagrapheFond:#466cdf;
+  --couleurParagrapheBorder:#f8f8f8;
+
+  --couleurLienTexte:#466cdf;/* #466cdb; */
+  --couleurLienFond:#f8f8f8;/* #d9d9d9; */
+  --couleurLienSurvolTexte:#f8f8f8;
+  --couleurLienSurvolFond:#466cdf;/* #365cab; */
+
+  --couleurMessageEchec:#f4f4f4;
+  --couleurMessageEchecFond:#ef2a8c; /*#ee2288;*/
+  --couleurMessageEchecBord:#ef2a8c; /*#ee2288;*/
+  --couleurMessageSucces:#000000;
+  --couleurMessageSuccesFond:#0fff88;
+  --couleurMessageSuccesBord:#0fff88;
+
+  --noir0:#000000;
+  --noir1:#1d1d1d;
+  --noir2:#2e2e2e;
+  --noir3:#3f3f3f;
+  --blanc1:#ffffff;
+  --blanc2:#eaeaea;
+
+  --borderRadius5:4px;
+  --borderRadius10:10px;
+  --borderRadius15:15px;
+
+  --policeSerif:'Quando';/*'Rosarivo'; 'Esteban'; */
+  --policeSansSerif:'Mukta';/* 'Mukta'; */
+  --policeParagraphe:'Quando';
+  --policeMotto: 'Esteban'; /*"IBM Plex Serif";*/
+  --policeTailleMenuNormale:1rem;
+  --policeTailleMenuReduite:0.9rem;
+  --policeMottoTaille:1.25em;
+  --policeLabelTaille:0.95em;
+  --ombreTexteBouton:1px 1px 1px #000020;
+  --ombreBoiteBouton:1px 0px 2px #000020;
+  /* --ombreTexteMenu:1px 1px 1px #000020; */
+  --ombreTexteMenu: 0px 1px 1px rgba(0,0,0,0.5);
+  --ombreBoiteMenu:1px 0px 2px #000020;
+  /* --ombreMotto:1px 1px 1px #000020; */
+  --ombreMotto:0 1px 1px rgba(0,0,0,0.5);
+
+  --triangle:url("data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'><polygon points='0,100 50,0 100,100'  transform=' rotate(180 50 50) translate(0,0)' stroke='%23466cdf' fill='%234689ff' stroke-width='5' stroke-linecap='butt'/> </svg>");
+
+  --asterisqueRouge:url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="-6 -8 16 16"><line id="line" y1="-3" y2="3" stroke="%23f75d59" stroke-linecap="butt" transform="rotate(15)"></line><line id="line" y1="-3" y2="3" stroke="%23f75d59" stroke-linecap="butt" transform="rotate(75)"></line><line id="line" y1="-3" y2="3" stroke="%23f75d59" stroke-linecap="butt" transform="rotate(-45)"></line> </svg>');
+
+  --asterisque:url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="-6 -8 16 16"><line id="line" y1="-3" y2="3" stroke="%23466cdf" stroke-linecap="butt" transform="rotate(15)"></line><line id="line" y1="-3" y2="3" stroke="%23466cdf" stroke-linecap="butt" transform="rotate(75)"></line><line id="line" y1="-3" y2="3" stroke="%23466cdf" stroke-linecap="butt" transform="rotate(-45)"></line> </svg>');
+
+
+  --seuilMediaQuery: 768px;
+}
+
