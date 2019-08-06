@@ -1,16 +1,6 @@
 <?php
 trait Outils {
 
-  // closure
-  public function baliser(string $balise){
-    return function(string $chaine) use($balise){
-      return "<$balise>".$chaine."</$balise>";
-    };
-  }
-
-  // public $baliseTD = baliser("td");
-  
-
   public function redirection($lien='index'){
     header('location: ' . URL . '/' . $lien);
   }
@@ -190,28 +180,6 @@ trait Outils {
     
     $retour = array($m['genre'],  $m['nom'], $m['prenom'], $m['fonction']);
     return $message . " " . implode(" ", $retour);  
-  }
-
-  /**********************************************************/
-
-  public function listeAccueil(int $numeroRequete=0){
-    $retour = $this->dbase->lectureVue($numeroRequete);
-    $donnees = $retour['donnees'];
-    $intitule['texte'] = $retour['intitule'];
-    $intitule['nombre'] = count(array_keys($donnees));
-
-    $casse = $this->casse;    
-    array_walk_recursive($donnees, function(&$valeur, $clef) use($casse){
-      return $valeur = in_array($clef, $casse) ? mb_convert_case($valeur, MB_CASE_TITLE, "UTF-8") : $valeur;
-    });
-
-    $th = $this->getHtmlTableEntetes($donnees[0], $this->correction(array_keys($donnees[0]), $this->dictionnaire), $this->types);
-    $colonnes_html = "<tr>".implode("", $th)."</tr>";
-    $lignes = $this->getHtmlTableLignes($donnees);
-
-    $lignes = array_map(function($x){return '<tr data-type="ligne">'.implode("",$x).'</tr>';}, $lignes);    
-    $tableau = $this->getHtmlTable($colonnes_html, $lignes);
-    $message = $this->getMessage();
   }
 
 }

@@ -79,7 +79,7 @@ class Suppression {
     $retour = $this->dbase->lectureVue($numeroRequete);
     
     if (empty($retour['donnees'])){
-      $this->fonctionVacante($retour);
+      $this->vacance($retour,'fonction');
       return null;
     }
 
@@ -109,25 +109,7 @@ class Suppression {
     $lignes = array_map(function($x){return '<tr data-type="ligne">'.implode("",$x).'</tr>';}, $lignes);    
     $tableau = $this->getHtmlTable($colonnes_html, $lignes);
 
-    $message = $this->getMessage();
-
-    echo $this->getEnteteHtml();
-    echo $this->getBarreMenusHtml();
-    echo '<main class="tabulaire">';
-    if($message){
-      echo '<div class="messagerie">';
-      echo '<h1 id="succes">'.$message.'</h1>';
-      echo '</div>';
-    }
-    echo '<div class="messagerie">';
-    echo $this->getTitrePanneau($intitule);
-    echo '</div>';
-    echo '<div class="panneau">';
-    echo $tableau;
-    echo '</div>';
-    echo '</main>';
-    echo $this->getScriptTableau();
-    echo $this->getBasDePageHtml();
+    $this->affichage($intitule, $tableau);
 
   }
 
@@ -139,7 +121,8 @@ class Suppression {
     $retour = $this->dbase->lectureVueGroupe($numeroRequete);
 
     if (empty($retour['donnees'])){
-      $this->groupeVacant($retour);
+
+      $this->vacance($retour,'groupe');
       return null;
     }
 
@@ -169,25 +152,8 @@ class Suppression {
     $lignes = array_map(function($x){return '<tr data-type="ligne">'.implode("",$x).'</tr>';}, $lignes);    
     $tableau = $this->getHtmlTable($colonnes_html, $lignes);
 
-    $message = $this->getMessage();
+    $this->affichage($intitule, $tableau);
 
-    echo $this->getEnteteHtml();
-    echo $this->getBarreMenusHtml();
-    echo '<main class="tabulaire">';
-    if($message){
-      echo '<div class="messagerie">';
-      echo '<h1 id="succes">'.$message.'</h1>';
-      echo '</div>';
-    }
-    echo '<div class="messagerie">';
-    echo $this->getTitrePanneau($intitule);
-    echo '</div>';
-    echo '<div class="panneau">';
-    echo $tableau;
-    echo '</div>';
-    echo '</main>';
-    echo $this->getScriptTableau();
-    echo $this->getBasDePageHtml();
   }
 
   public function recrutementSuppression(){
@@ -215,28 +181,48 @@ class Suppression {
     }
   }
 
-  private function fonctionVacante(array $envoi){
-    $intitule = $envoi['intitule'];
+  private function affichage(array $intitule, string $tableau){
+    
+    $message = $this->getMessage();
+
     echo $this->getEnteteHtml();
     echo $this->getBarreMenusHtml();
-    echo '<main class="tabulaire">'.PHP_EOL;
-    echo '<table class="instrumentistes"><tr><th>'.$intitule.'</th></tr>'.PHP_EOL;
-    echo '<tr><td class="texte">Suppression impossible. Aucun musicien n’assure cette fonction dans l’effectif actuel.</td></tr>'.PHP_EOL;
-    echo '</table>'.PHP_EOL;
-    echo '</main>'.PHP_EOL;
+    echo '<main class="tabulaire">';
+    if($message){
+      echo '<div class="messagerie">';
+      echo '<h1 id="succes">'.$message.'</h1>';
+      echo '</div>';
+    }
+    echo '<div class="messagerie">';
+    echo $this->getTitrePanneau($intitule);
+    echo '</div>';
+    echo '<div class="panneau">';
+    echo $tableau;
+    echo '</div>';
+    echo '</main>';
+    echo $this->getScriptTableau();
     echo $this->getBasDePageHtml();
   }
   
-  private function groupeVacant(array $envoi){
+
+  private function vacance(array $envoi, string $type){
+    $texte = array(
+      'fonction' => 'Suppression impossible. Aucun musicien n’assure cette fonction dans l’effectif actuel.',
+      'groupe' => 'Suppression impossible. Il est au contraire nécessaire de recruter des musiciens.'
+    );
+    
     $intitule = $envoi['intitule'];
+    $annonce = ($type == 'fonction') ? $texte['fonction'] : $texte['groupe'];
     echo $this->getEnteteHtml();
     echo $this->getBarreMenusHtml();
     echo '<main class="tabulaire">'.PHP_EOL;
     echo '<table class="instrumentistes"><tr><th>'.$intitule.'</th></tr>'.PHP_EOL;
-    echo '<tr><td class="texte">Suppression impossible. Il est au contraire nécessaire de recruter des musiciens.</td></tr>'.PHP_EOL;
+    echo '<tr><td class="texte">'.$annonce.'</td></tr>'.PHP_EOL;
     echo '</table>'.PHP_EOL;
     echo '</main>'.PHP_EOL;
     echo $this->getBasDePageHtml();
   }
+
+  
 
 }

@@ -60,7 +60,6 @@ class Modification {
     $musicien['nom'] = $this->ucfirst_utf8($musicien['nom']);
     $musicien['prenom'] = $this->ucfirst_utf8($musicien['prenom']);
     $musicien['ville'] = $this->ucfirst_utf8($musicien['ville']);
-
     
     echo $this->getEnteteHtml();
     echo $this->getBarreMenusHtml();
@@ -79,7 +78,7 @@ class Modification {
     $retour = $this->dbase->lectureVue($numeroRequete);
 
     if (empty($retour['donnees'])){
-      $this->fonctionVacante($retour);
+      $this->vacance($retour,'fonction');
       return null;
     }
 
@@ -108,26 +107,7 @@ class Modification {
     $lignes = array_map(function($x){return '<tr data-type="ligne">'.implode("",$x).'</tr>';}, $lignes);    
     $tableau = $this->getHtmlTable($colonnes_html, $lignes);
 
-    $message = $this->getMessage();
-
-    echo $this->getEnteteHtml();
-    echo $this->getBarreMenusHtml();
-    echo '<main class="tabulaire">';
-    if($message){
-      echo '<div class="messagerie">';
-      echo '<h1 id="succes">'.$message.'</h1>';
-      echo '</div>';
-    }
-    echo '<div class="messagerie">';
-    echo $this->getTitrePanneau($intitule);
-    echo '</div>';
-    echo '<div class="panneau">';
-    echo $tableau;
-    echo '</div>';
-    echo '</main>';
-    echo $this->getScriptTableau();
-    echo $this->getBasDePageHtml();
-    
+    $this->affichage($intitule, $tableau);
   }
 
   public function groupe(array $envoi){
@@ -138,7 +118,7 @@ class Modification {
     $retour = $this->dbase->lectureVueGroupe($numeroRequete);
 
     if (empty($retour['donnees'])){
-      $this->groupeVacant($retour);
+      $this->vacance($retour, 'groupe');
       return null;
     }
 
@@ -168,25 +148,7 @@ class Modification {
     $lignes = array_map(function($x){return '<tr data-type="ligne">'.implode("",$x).'</tr>';}, $lignes);    
     $tableau = $this->getHtmlTable($colonnes_html, $lignes);
 
-    $message = $this->getMessage();
-
-    echo $this->getEnteteHtml();
-    echo $this->getBarreMenusHtml();
-    echo '<main class="tabulaire">';
-    if($message){
-      echo '<div class="messagerie">';
-      echo '<h1 id="succes">'.$message.'</h1>';
-      echo '</div>';
-    }
-    echo '<div class="messagerie">';
-    echo $this->getTitrePanneau($intitule);
-    echo '</div>';
-    echo '<div class="panneau">';
-    echo $tableau;
-    echo '</div>';
-    echo '</main>';
-    echo $this->getScriptTableau();
-    echo $this->getBasDePageHtml();
+    $this->affichage($intitule, $tableau);
     
   }
 
@@ -243,29 +205,48 @@ class Modification {
 
   }
 
-  private function fonctionVacante(array $envoi){
+  private function vacance(array $envoi, string $type){
+    $texte = array(
+      'fonction' => 'Modification impossible. Aucun musicien n’assure cette fonction dans l’effectif opérationnel actuel.',
+      'groupe' => 'Modification impossible. Sans recrutement d’instrumentists, il ne sea par possible d’exécuter certaine œuvre du répertoire symphonique.'
+    );
+
     $intitule = $envoi['intitule'];
+    $annonce = ($type == 'fonction') ? $texte['fonction'] : $texte['groupe'];
     echo $this->getEnteteHtml();
     echo $this->getBarreMenusHtml();
     echo '<main class="tabulaire">'.PHP_EOL;
     echo '<table class="instrumentistes"><tr><th>'.$intitule.'</th></tr>'.PHP_EOL;
-    echo '<tr><td class="texte">Modification impossible. Aucun musicien n’assure cette fonction dans l’effectif opérationnel.</td></tr>'.PHP_EOL;
+    echo '<tr><td class="texte">'.$annonce.'</td></tr>'.PHP_EOL;
     echo '</table>'.PHP_EOL;
     echo '</main>'.PHP_EOL;
     echo $this->getBasDePageHtml();
+    
   }
 
-  private function groupeVacant(array $envoi){
-    $intitule = $envoi['intitule'];
+  private function affichage(array $intitule, string $tableau){
+    
+    $message = $this->getMessage();
+
     echo $this->getEnteteHtml();
     echo $this->getBarreMenusHtml();
-    echo '<main class="tabulaire">'.PHP_EOL;
-    echo '<table class="instrumentistes"><tr><th>'.$intitule.'</th></tr>'.PHP_EOL;
-    echo '<tr><td class="texte">Modification impossible. Sans recrutement d’instrumentists, il ne sea par possible d’exécuter certaine œuvre du répertoire symphonique.</td></tr>'.PHP_EOL;
-    echo '</table>'.PHP_EOL;
-    echo '</main>'.PHP_EOL;
+    echo '<main class="tabulaire">';
+    if($message){
+      echo '<div class="messagerie">';
+      echo '<h1 id="succes">'.$message.'</h1>';
+      echo '</div>';
+    }
+    echo '<div class="messagerie">';
+    echo $this->getTitrePanneau($intitule);
+    echo '</div>';
+    echo '<div class="panneau">';
+    echo $tableau;
+    echo '</div>';
+    echo '</main>';
+    echo $this->getScriptTableau();
     echo $this->getBasDePageHtml();
   }
+  
 
   public function index(array $envoi){
     $this->redirection('modification/fonction/1');
