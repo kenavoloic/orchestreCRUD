@@ -36,8 +36,7 @@ L’application est un *work in progress*.
 * Suppression des redondances, notamment fonction d’affichage.
 * Simplification du code.
 * Adoption d’une approche fonctionnelle et transformation des boucles foreach
-* Héritage ou composition : utilisation d’une classe dont hériteront les classes *Accueil*, *Lecture*, *Modification* et *Suppression* ou maintien de la composition.
-
+* Reprendre array_walk_recursive.
 
 
 
