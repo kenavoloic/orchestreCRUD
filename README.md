@@ -38,7 +38,10 @@ L’application est un *work in progress*.
 * Adoption d’une approche fonctionnelle et transformation des boucles foreach
 * Reprendre array_walk_recursive.
 
+## Installation
 
+* Créez la base de données *orchestre*. Puis chargez les fichiers sql du dossier *data*.
+* Indiquez le nom d’utilisateur et le mot de passe dans *index.php*.
 
 
 

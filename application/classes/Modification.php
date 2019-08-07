@@ -208,7 +208,7 @@ class Modification {
   private function vacance(array $envoi, string $type){
     $texte = array(
       'fonction' => 'Modification impossible. Aucun musicien n’assure cette fonction dans l’effectif opérationnel actuel.',
-      'groupe' => 'Modification impossible. Sans recrutement d’instrumentists, il ne sea par possible d’exécuter certaine œuvre du répertoire symphonique.'
+      'groupe' => 'Modification impossible. Sans recrutement d’instrumentistes, il ne sea par possible d’exécuter certaine œuvre du répertoire symphonique.'
     );
 
     $intitule = $envoi['intitule'];
