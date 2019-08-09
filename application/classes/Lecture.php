@@ -74,7 +74,7 @@ class Lecture {
     $lignes = array_map(function($x){return '<tr data-type="ligne">'.implode("",$x).'</tr>';}, $lignes);    
     $tableau = $this->getHtmlTable($colonnes_html, $lignes);
 
-    $this->affichage($tableau);
+    $this->affichage($intitule, $tableau);
   }
 
   public function groupe(array $envoi){
@@ -104,7 +104,7 @@ class Lecture {
     $lignes = array_map(function($x){return '<tr data-type="ligne">'.implode("",$x).'</tr>';}, $lignes);    
     $tableau = $this->getHtmlTable($colonnes_html, $lignes);
 
-    $this->affichage($tableau);
+    $this->affichage($intitule, $tableau);
   }
   
 
@@ -112,7 +112,7 @@ class Lecture {
     $this->redirection('lecture/fonction/1');
   }
 
-  private function affichage(string $tableau){
+  private function affichage(array $intitule, string $tableau){
     $message = $this->getMessage();
     echo $this->getEnteteHtml();
     echo $this->getBarreMenusHtml();

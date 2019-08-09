@@ -87,8 +87,12 @@
 	  echo implode("",$retour);
 	  ?>
 	</select>
-	<label for="nationalite">Nationalité</label>
-      </div>
+		<label for="nationalite">Nationalité</label>
+                  </div>
+		  <div class="ligne" id="_recrutement">
+		    <input id="recrutement" name="recrutement" type="text" title="JJ-MM-AAAA" value="<?php echo $musicien['recrutement']; ?>" placeholder="JJ-MM-AAAA" pattern="[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}" minlength="10" maxlength="10" />
+		    <label for="recrutement">Date de recrutement</label>
+		  </div>
       <div class="ligne" id="_submit"> 
 	<input id="submit" name="<?php echo strtolower($libelle) ; ?>" type="submit" value="<?php echo ucfirst($libelle); ?>"/>	
       </div>

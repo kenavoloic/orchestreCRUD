@@ -182,6 +182,8 @@ class Modification {
     $nationalite = array_flip(array_column($this->nationalites, 'iso'));
     $musicien['nationalite'] = isset($nationalite[$musicien['nationalite']]) ? $musicien['nationalite'] : '';
 
+    $musicien['recrutement'] = $this->conversionRecrutementJJMMAAAA($musicien['recrutement']) ?? null;
+
     $_SESSION['musicien'] = array(
       'genre' => $musicien['genre'],
       'nom' => $musicien['nom'],
@@ -189,8 +191,9 @@ class Modification {
       'fonction' => $musicien['fonction']
     );
 
+    /* if(isset($musicien['genre'], $musicien['nom'], $musicien['naissance'], $musicien['fonction'], $musicien['nationalite'], $musicien['recrutement'])){ */
     
-    if(isset($musicien['genre'], $musicien['nom'], $musicien['naissance'], $musicien['fonction'], $musicien['nationalite'])){
+    if(isset($musicien['genre'], $musicien['nom'], $musicien['naissance'], $musicien['fonction'], $musicien['nationalite'], $musicien['recrutement'])){
       $test = false;
       $this->dbase->mise_a_jour($numeroID, $musicien);
       $musicien = array_filter($musicien);

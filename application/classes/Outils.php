@@ -39,6 +39,15 @@ trait Outils {
     return empty($aaaammjj) ? null : date('d-m-Y', strtotime($aaaammjj));
   }
 
+  public function conversionRecrutementJJMMAAAA($jjmmaaaa=""){
+    return empty($jjmmaaaa) ? null : date('Y-m-d', strtotime($jjmmaaaa));
+  }
+
+  public function conversionRecrutementAAAAMMJJ($aaaammjj=""){
+    return empty($aaaammjj) ? null : date('d-m-Y', strtotime($aaaammjj));
+  }
+
+
   ///////////////////////////////////////////////////////////////
   // Outils html
   ///////////////////////////////////////////////////////////////

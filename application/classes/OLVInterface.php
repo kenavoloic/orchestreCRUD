@@ -110,7 +110,8 @@ interface OLVInterface {
     'id'=>'ID',
     'nationalite'=>'nationalité',
     'nationalites'=>'nationalités',
-    'prenom'=>'prénom'
+    'prenom'=>'prénom',
+    'anciennete' => 'ancienneté'
   );
 
   const attributsDonnees = array(
@@ -130,6 +131,7 @@ interface OLVInterface {
     'pays' => 'chaine',
     'modification' => 'chaine',
     'suppression' => 'chaine',
+    'anciennete' => 'entier',
     'recrutement' => 'date'
   );
 

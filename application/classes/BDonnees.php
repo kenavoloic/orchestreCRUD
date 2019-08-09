@@ -132,10 +132,17 @@ class BDonnees {
     $courriel = $musicien['courriel'];
     $instrument = $musicien['fonction'];
     $nationalite = $musicien['nationalite'];
+
+    $recrutement = $musicien['recrutement'];
     
     $liste = array($genre, $nom, $prenom, $naissance, $ville, $courriel, $instrument, $nationalite);
     
-    $requeteSQL = "INSERT INTO " .$table . " (genre, nom, prenom, naissance, ville, courriel, fonction, nationalite) VALUES (:genre, :nom, :prenom, :naissance, :ville, :courriel, :fonction, :nationalite);";
+    $liste = array($genre, $nom, $prenom, $naissance, $ville, $courriel, $instrument, $nationalite, $recrutement);    
+    
+    /* $requeteSQL = "INSERT INTO " .$table . " (genre, nom, prenom, naissance, ville, courriel, fonction, nationalite) VALUES (:genre, :nom, :prenom, :naissance, :ville, :courriel, :fonction, :nationalite);"; */
+
+    $requeteSQL = "INSERT INTO " .$table . " (genre, nom, prenom, naissance, ville, courriel, fonction, nationalite, recrutement) VALUES (:genre, :nom, :prenom, :naissance, :ville, :courriel, :fonction, :nationalite, :recrutement);";
+    
     $requete = $this->pdo->prepare($requeteSQL);
     $requete->execute($musicien);
   }
@@ -158,9 +165,16 @@ class BDonnees {
     $courriel = $musicien['courriel'];
     $instrument = $musicien['fonction'];
     $nationalite = $musicien['nationalite'];
+
+    //$recrutement = $musicien['recrutement'];
     
-    $liste = array($genre, $nom, $prenom, $naissance, $ville, $courriel, $instrument, $nationalite, $numeroID);
-    $requeteSQL = "UPDATE " . $table . " SET  genre = :genre, nom = :nom, prenom = :prenom, naissance = :naissance, ville = :ville, courriel = :courriel, fonction = :fonction, nationalite = :nationalite where id = :id;";
+    /* $liste = array($genre, $nom, $prenom, $naissance, $ville, $courriel, $instrument, $nationalite, $numeroID);
+     * 
+     * $requeteSQL = "UPDATE " . $table . " SET  genre = :genre, nom = :nom, prenom = :prenom, naissance = :naissance, ville = :ville, courriel = :courriel, fonction = :fonction, nationalite = :nationalite where id = :id;"; */
+
+    $liste = array($genre, $nom, $prenom, $naissance, $ville, $courriel, $instrument, $nationalite, $numeroID, $recrutement);
+    $requeteSQL = "UPDATE " . $table . " SET  genre = :genre, nom = :nom, prenom = :prenom, naissance = :naissance, ville = :ville, courriel = :courriel, fonction = :fonction, nationalite = :nationalite, recrutement = :recrutement where id = :id;";
+
     
     $requete = $this->pdo->prepare($requeteSQL);
     $requete->execute($musicien);     
@@ -200,17 +214,6 @@ class BDonnees {
 
   public function getNationalites(){
     return $this->nationalites;
-  }
-
-  private function setTdf($pdo_mode = PDO::FETCH_ASSOC){
-    $requete = "select * from vue_tdf order by annee;";
-    $requete = $this->pdo->prepare($requete);
-    $requete->execute();
-    return $requete->fetchAll($pdo_mode);
-  }
-  
-  private function getTdf(){
-    return $this->tdf;
   }
 
   public function getRapportOperationnel($pdo_mode = PDO::FETCH_ASSOC){

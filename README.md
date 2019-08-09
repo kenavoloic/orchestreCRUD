@@ -27,21 +27,19 @@ L’application est un *work in progress*.
 
 ### Fonctionnalités
 * Rendre les lignes de tableau *cliquables*.
-* Date de recrutement.
 * Nombre de représentations.
 * Lieu des représentations.
 * Personnel administratif et technique.
 
 ### Programmation PHP
-* Suppression des redondances, notamment fonction d’affichage.
 * Simplification du code.
-* Adoption d’une approche fonctionnelle et transformation des boucles foreach
+* Adoption d’une approche fonctionnelle et transformation des dernières boucles *foreach*.
 * Reprendre array_walk_recursive.
 
 ## Installation
 
 * Créez la base de données *orchestre*. Puis chargez les fichiers sql du dossier *data*.
-* Indiquez le nom d’utilisateur et le mot de passe dans *index.php*.
+* Indiquez le nom d’utilisateur *utilisateur* et le mot de passe *mpasse* dans *index.php*.
 
 
 

@@ -11,6 +11,7 @@ function initialisations(){
   const instrument = document.getElementById('instrument');
   const nationalite = document.getElementById('nationalite');
   const anniversaire = document.getElementById('anniversaire');
+  const recrutement = document.getElementById('recrutement');
 
   /* <select> */
   genre.addEventListener('onchange', () => {
@@ -87,5 +88,13 @@ function initialisations(){
     anniversaire.setCustomValidity('Merci de formater la date ainsi : jj-mm-aaaa.');	
   });
 
+  recrutement.addEventListener('input', () => {
+    recrutement.setCustomValidity('');
+    recrutement.checkValidity();
+  });
+
+  recrutement.addEventListener('invalid', () => {
+    recrutement.setCustomValidity('Merci de formater la date ainsi : jj-mm-aaaa.');	
+  });
   
 }

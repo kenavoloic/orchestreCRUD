@@ -37,6 +37,11 @@
 	<input id="nationalite" name="nationalite" type="text" value="<?php echo $musicien['pays']; ?>" readonly="readonly" />
 	<label for="nationalite">Nationalité</label>
       </div>
+      <div class="ligne" id="_recrutement">
+	<input id="recrutement" name="recrutement" type="text"  value="<?php echo $musicien['recrutement']; ?>"  readonly="readonly"/>
+	<label for="recrutement">Date de recrutement</label>
+      </div>
+      
       <div class="ligne" id="_submit"> 
 	<input id="submit" name="<?php echo strtolower($libelle); ?>" type="submit" value="<?php echo ucfirst($libelle); ?>"/>
       </div>

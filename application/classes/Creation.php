@@ -78,7 +78,9 @@ class Creation {
     $nationalite = array_flip(array_column($this->nationalites, 'iso'));
     $musicien['nationalite'] = isset($nationalite[$musicien['nationalite']]) ? $musicien['nationalite'] : '';
 
-    if (isset($musicien['genre'], $musicien['nom'], $musicien['naissance'], $musicien['fonction'], $musicien['nationalite'])){
+    $musicien['recrutement'] = $this->conversionRecrutementJJMMAAAA($musicien['recrutement']) ?? null;
+
+    if (isset($musicien['genre'], $musicien['nom'], $musicien['naissance'], $musicien['fonction'], $musicien['nationalite'], $musicien['recrutement'])){
       $test = false;
       $this->dbase->ecriture($musicien);
 
