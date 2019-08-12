@@ -38,7 +38,15 @@ L’application est un *work in progress*.
 
 ## Installation
 
-* Créez la base de données *orchestre*. Puis chargez les fichiers sql du dossier *data*.
+* Créez la base de données *orchestre*. Puis chargez les fichiers sql du dossier *data* :
+
+`mysql < effectif.sql`
+`mysql < genres.sql`
+`mysql < instruments.sql`
+`mysql < pays.sql`
+`mysql < vues.sql`
+`mysql < rapport.sql`
+
 * Indiquez le nom d’utilisateur *utilisateur* et le mot de passe *mpasse* dans *index.php*.
 
 
