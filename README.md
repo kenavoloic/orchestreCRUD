@@ -40,17 +40,17 @@ L’application est un *work in progress*.
 
 * Créez la base de données *orchestre*. Puis chargez les fichiers sql du dossier *data* :
 
-`mysql < effectif.sql`
+`mysql -u utilisateur -p <  effectif.sql`
 
-`mysql < genres.sql`
+`mysql -u utilisateur -p <  genres.sql`
 
-`mysql < instruments.sql`
+`mysql -u utilisateur -p <  instruments.sql`
 
-`mysql < pays.sql`
+`mysql -u utilisateur -p <  pays.sql`
 
-`mysql < vues.sql`
+`mysql -u utilisateur -p <  vues.sql`
 
-`mysql < rapport.sql`
+`mysql -u utilisateur -p <  rapport.sql`
 
 * Indiquez le nom d’utilisateur *utilisateur* et le mot de passe *mpasse* dans *index.php*.
 
