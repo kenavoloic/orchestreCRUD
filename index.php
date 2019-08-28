@@ -22,8 +22,8 @@ define('BDONNEES', array(
   'pilote'=>'mysql',
   'hote'=>'localhost',
   'bdd'=>'orchestre',
-  'utilisateur'=>'biblos',
-  'mpasse'=>'borges1',
+  'utilisateur'=>'',
+  'mpasse'=>'',
   'charset'=>'utf8',
   'options'=>array(PDO::ATTR_PERSISTENT => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION),
   'tableParDefaut'=>'effectif')
